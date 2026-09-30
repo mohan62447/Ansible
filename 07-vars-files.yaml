@@ -1,0 +1,11 @@
+- name: vars from file
+  hosts: local
+  connection: local
+  vars_files:
+     - variables.yaml  
+  tasks:
+    - name: print my information
+      ansible.builtin.debug:
+        msg: >-
+          My First Name is {{ FIRSTNAME }} and my last name is {{ LASTNAME }} and I am {{ AGE
+          }} years old
