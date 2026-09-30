@@ -1,0 +1,17 @@
+- name: conditional statements
+  hosts: local
+  connection: local
+  vars:
+    firstname: mohan
+    lastname: reddy
+    age: 29
+  tasks:
+    - name: print firstname if age is greater than 30
+      ansible.builtin.debug:
+        msg: "My First Name is {{ firstname }}  and I am {{ age }} years old "
+      when: age > 30
+
+    - name: print lastname if age is less than or equal to 30
+      ansible.builtin.debug:
+        msg: "My Last Name is {{ lastname }} and I am {{ age }} years old "
+      when: age <= 30
