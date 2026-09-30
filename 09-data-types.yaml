@@ -1,0 +1,20 @@
+- name: data types
+  hosts: local
+  connection: local
+  vars:
+    my_string: "Hello World"
+    my_integer: 42
+    my_float: 3.14
+    my_boolean: true
+    my_list:
+      - item1
+      - item2
+      - item3
+    my_dict:
+      key1: value1
+      key2: value2
+      key3: value3
+  tasks:
+    - name: print my string
+      ansible.builtin.debug:
+        msg: "My string is {{ my_string }} and my integer is {{ my_integer }} and my float is {{ my_float }} and my boolean is {{ my_boolean }} and my list is {{ my_list }} and my dict is {{ my_dict }}"
