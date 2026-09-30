@@ -7,7 +7,11 @@
     age: 29
   tasks:
     - name: print firstname
-      vars:
+      vars: #Here play level var will override the task level var if we specify the same variable name in task level vars
         firstname: REDDY
       ansible.builtin.debug:
+        msg: "My First Name is {{ firstname }} and my last name is {{ lastname }} and I am {{ age }} years old "
+
+    - name: print firstname
+      ansible.builtin.debug: #Here it will take the play level var as we have not specified the same variable name in task level vars
         msg: "My First Name is {{ firstname }} and my last name is {{ lastname }} and I am {{ age }} years old "
