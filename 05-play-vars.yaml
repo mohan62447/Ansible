@@ -1,11 +1,15 @@
 - name: play level vars
   hosts: local
   connection: local
-  vars:
+  vars:               # This will access by task level vars if we specify the same variable name in task level vars
     firstname: MOHAN
     lastname: Reddy
     age: 29
   tasks:
+    - name: print firstname
+      ansible.builtin.debug:
+        msg: "My First Name is {{ firstname }} and my last name is {{ lastname }} and I am {{ age }} years old "
+
     - name: print firstname
       ansible.builtin.debug:
         msg: "My First Name is {{ firstname }} and my last name is {{ lastname }} and I am {{ age }} years old "
